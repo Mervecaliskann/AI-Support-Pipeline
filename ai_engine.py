@@ -5,7 +5,7 @@ Author: Merve Caliskan
 Description: This module leverages Large Language Models (LLM) via Groq Cloud API 
              to perform automated sentiment analysis, ticket categorization, 
              and priority assignment for incoming customer support queries.
-Tech Stack: Groq (Llama-3.3-70b), NLP, JSON Parsing.
+Tech Stack: Groq (gpt-oss-120b), NLP, JSON Parsing.
 """
 
 import os
@@ -32,7 +32,7 @@ class SupportAI:
         
         response = self.client.chat.completions.create(
             messages=[{"role": "user", "content": prompt}],
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-120b",
             response_format={"type": "json_object"} # JSON dönmesi için zorluyoruz
         )
         
